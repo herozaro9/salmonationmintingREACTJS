@@ -1,0 +1,20 @@
+{
+  "CONTRACT_ADDRESS": "0x65CE98430b5589f5136480B8201737a395794b2c",
+  "SCAN_LINK": "https://testnet.bscscan.com/address/0x65CE98430b5589f5136480B8201737a395794b2c",
+  "NETWORK": {
+    "NAME": "Testnet Binance Smart Chain",
+    "SYMBOL": "BNB",
+    "ID": 97
+  },
+  "NFT_NAME": "Salmonation NFT",
+  "SYMBOL": "SUINFT",
+  "MAX_SUPPLY": 1000,
+  "WEI_COST": 200000000000000000,
+  "DISPLAY_COST": 0.2,
+  "GAS_FEE": 0.02,
+  "FAUCET": "https://testnet.binance.org/faucet-smart",
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opensea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/snft",
+  "SHOW_BACKGROUND": true
+}
