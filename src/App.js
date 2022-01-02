@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
+import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ export const StyledButton = styled.button`
   position: relative;
   font-family: 'Poppins', sans-serif !important;
     z-index: 1;
-    min-width: 160px;
+    min-width: 200px;
     height: 48px;
     line-height: 48px;
     font-size: 12px;
@@ -33,37 +34,16 @@ export const StyledButton = styled.button`
     cursor:pointer;
     transition: all 500ms;
     margin:0px 5px;
-      :hover {
-      background-position: right center;
-      color: #fff;
-  }
-`;
-
-export const StyledButtonMYNFT = styled.button`
-  position: relative;
-  font-family: 'Poppins', sans-serif !important;
-    z-index: 1;
-    min-width: 160px;
-    height: 48px;
-    line-height: 48px;
-    font-size: 12px;
-    font-weight: 600;
-    border: none;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 0 20px;
-    text-align: center;
-    text-transform: uppercase;
-    background-size: 200% auto;
-    color: #fff;
-    box-shadow: 0 3px 20px rgb(0 0 0 / 10%);
-    border-radius: 10px;
-    background-image: linear-gradient(
-130deg, #f0a80e 0%, #FF7701 50%, #f0a80e 100%);
-    -webkit-transition: all 500ms;
-    cursor:pointer;
-    transition: all 500ms;
-    margin:0px 5px;
+    display: inline-flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    margin-bottom:14px;
+    align-items: center;
       :hover {
       background-position: right center;
       color: #fff;
@@ -158,6 +138,12 @@ export const StyledImgGifBottom = styled.img`
   transition: width 0.5s;
 `;
 
+export const StyledImgbutton = styled.img`
+  max-height: 30px;
+  max-width: 30px;
+  width: 100%;
+`;
+
 export const StyledLink = styled.a`
   color: var(--primary);
   text-decoration: none;
@@ -195,6 +181,96 @@ export const MovingBG = styled.div`
       -webkit-transform: translate3d(-50%, 0, 0);
       transform: translate3d(-50%, 0, 0); } 
   }
+`;
+
+const StyledModal = Modal.styled`
+    height: 100%;
+    width:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: ${(props) => props.opacity};
+    transition : all 0.3s ease-in-out;
+    @media (min-width: 992px){
+      width: 900px;
+      margin: 1.75rem auto;
+    }
+    @media (max-width: 767px){
+      width: 650px;
+      margin: 1.75rem auto;
+    }
+    @media (max-width: 576px){
+      width: 450px;
+      margin: 1.75rem auto;
+    }
+    `;
+
+function FancyModalButton() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [opacity, setOpacity] = useState(0);
+
+  function toggleModal(e) {
+    setOpacity(0);
+    setIsOpen(!isOpen);
+  }
+
+  function afterOpen() {
+    setTimeout(() => {
+      setOpacity(1);
+    }, 100);
+  }
+
+  function beforeClose() {
+    return new Promise((resolve) => {
+      setOpacity(0);
+      setTimeout(resolve, 300);
+    });
+  }
+
+  return (
+    <div>
+      <StyledButton onClick={toggleModal}
+        style={{
+          justifyContent: 'center',
+        }}
+      > 
+        MY NFT
+      </StyledButton>
+      <StyledModal
+        isOpen={isOpen}
+        afterOpen={afterOpen}
+        beforeClose={beforeClose}
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        opacity={opacity}
+        backgroundProps={{ opacity }}
+      >
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+            <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+              <s.Container flex={1} jc={"center"} ai={"center"}>
+                <StyledImgGif alt={"example"} src={"/config/images/example.gif"} />
+              </s.Container>
+              <s.Container flex={1} jc={"center"} ai={"center"}>
+                <StyledImgGif alt={"example"} src={"/config/images/example.gif"} />
+              </s.Container>
+              </ResponsiveWrapper>
+            </div>
+          </div>
+      </StyledModal>
+    </div>
+  );
+}
+
+const FadingBackground = styled(BaseModalBackground)`
+  opacity: ${(props) => props.opacity};
+  transition: all 0.3s ease-in-out;
 `;
 
 function App() {
@@ -248,7 +324,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit MY NFT to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -383,7 +459,10 @@ function App() {
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
-                  <s.Container ai={"center"} jc={"center"}>
+                  <s.Container ai={"center"} jc={"center"} style={{
+                        display: "block",
+                        textAlign: "center",
+                      }}>
                     <s.TextDescription
                       style={{
                         textAlign: "center",
@@ -400,7 +479,24 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT
+                      Metamask 
+                      <StyledImgbutton
+                          alt={"Metamask"}
+                          src={"/config/images/wallet/metamask.svg"}
+                        />
+                    </StyledButton>
+                    <StyledButton
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(walletconnect());
+                        getData();
+                      }}
+                    >
+                      Wallet Connect 
+                      <StyledImgbutton
+                          alt={"WalletConnect"}
+                          src={"/config/images/wallet/walletconnect.svg"}
+                        />
                     </StyledButton>
                     {blockchain.errorMsg !== "" ? (
                       <>
@@ -467,15 +563,17 @@ function App() {
                           claimNFTs();
                           getData();
                         }}
+                        style={{
+                          justifyContent: 'center',
+                        }}
                       >
                         {claimingNft ? "BUSY" : "BUY"}
                       </StyledButton>
-
-                      <StyledButtonMYNFT
-                        disabled={claimingNft ? 1 : 0}
-                      >
-                        {claimingNft ? "MY NFT" : "MY NFT"}
-                      </StyledButtonMYNFT>
+                       <ModalProvider backgroundComponent={FadingBackground}>
+                        <div className="App">
+                          <FancyModalButton />
+                        </div>
+                      </ModalProvider>
                     </s.Container>
                   </>
                 )}

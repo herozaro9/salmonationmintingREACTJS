@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Metamask_logo</title>
+    <defs>
+        <circle id="path-1" cx="16" cy="16" r="16"></circle>
+    </defs>
+    <g id="Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Connect-to-a-wallet" transform="translate(-962.000000, -227.000000)">
+            <g id="Popup-window" transform="translate(630.000000, 111.000000)">
+                <g id="Metamask" transform="translate(32.000000, 100.000000)">
+                    <g id="Metamask_logo" transform="translate(300.000000, 16.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Oval" fill="#FDE6D2" xlink:href="#path-1"></use>
+                        <g id="logo" mask="url(#mask-2)">
+                            <g transform="translate(6.000000, 6.588235)">
+                                <polygon id="Fill-1" stroke="none" fill="#E17726" fill-rule="evenodd" points="12.5830588 2.42141176 11.1465882 5.79023529 18.8724706 0.0737647059"></polygon>
+                                <polygon id="Stroke-2" stroke="#E17726" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="18.8723529 0.0735294118 11.1464706 5.79 12.5835294 2.42117647"></polygon>
+                                <polygon id="Fill-3" stroke="none" fill="#E27625" fill-rule="evenodd" points="8.70882353 5.84352941 7.34058824 2.42117647 1.05176471 0.0735294118"></polygon>
+                                <polygon id="Stroke-4" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="1.05182353 0.0735294118 8.70888235 5.84352941 7.34064706 2.42117647"></polygon>
+                                <polygon id="Fill-5" stroke="none" fill="#E27625" fill-rule="evenodd" points="14.0347059 16.4688235 18.4370588 17.6811765 19.6976471 13.3970588 16.0911765 13.3282353"></polygon>
+                                <polygon id="Stroke-6" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="16.0908824 13.3283529 14.035 16.4689412 18.4367647 17.6807059 19.6979412 13.3971765"></polygon>
+                                <polygon id="Fill-7" stroke="none" fill="#E27625" fill-rule="evenodd" points="0.234 13.3971765 1.48694118 17.6812941 5.88105882 16.4689412 3.83341176 13.3283529"></polygon>
+                                <polygon id="Stroke-8" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="0.234058824 13.3972941 1.487 17.6808235 5.88170588 16.4690588 3.83347059 13.3284706"></polygon>
+                                <polygon id="Fill-10" stroke="none" fill="#E27625" fill-rule="evenodd" points="5.64452941 8.02358824 4.42158824 9.86770588 8.77747059 10.0659412 8.63276471 5.37829412"></polygon>
+                                <polygon id="Stroke-11" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="5.64452941 8.02358824 4.42158824 9.86770588 8.77747059 10.0659412 8.63276471 5.37829412"></polygon>
+                                <polygon id="Fill-12" stroke="none" fill="#E27625" fill-rule="evenodd" points="14.2796471 8.02358824 11.2461176 5.32535294 11.1467059 10.0659412 15.5025882 9.86770588"></polygon>
+                                <polygon id="Stroke-13" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="14.2796471 8.02358824 11.2461176 5.32535294 11.1467059 10.0659412 15.5025882 9.86770588"></polygon>
+                                <polygon id="Fill-14" stroke="none" fill="#E27625" fill-rule="evenodd" points="5.88147059 16.4688824 8.51735294 15.1959412 6.24852941 13.4277059"></polygon>
+                                <polygon id="Stroke-15" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="5.88147059 16.4688824 8.51735294 15.1959412 6.24852941 13.4277059"></polygon>
+                                <polygon id="Fill-16" stroke="none" fill="#E27625" fill-rule="evenodd" points="11.4062353 15.1958824 14.0350588 16.4688235 13.6756471 13.4276471"></polygon>
+                                <polygon id="Stroke-17" stroke="#E27625" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.4062353 15.1958824 14.0350588 16.4688235 13.6756471 13.4276471"></polygon>
+                                <polygon id="Fill-18" stroke="none" fill="#D5BFB2" fill-rule="evenodd" points="14.0349412 16.4688824 11.4061176 15.1959412 11.6208235 16.903 11.5972941 17.6277059"></polygon>
+                                <polygon id="Stroke-19" stroke="#D5BFB2" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="14.0349412 16.4688824 11.4061176 15.1959412 11.6208235 16.903 11.5972941 17.6277059"></polygon>
+                                <polygon id="Fill-20" stroke="none" fill="#D5BFB2" fill-rule="evenodd" points="5.88117647 16.4688824 8.32647059 17.6277059 8.31117647 16.903 8.51764706 15.1959412"></polygon>
+                                <polygon id="Stroke-21" stroke="#D5BFB2" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="5.88117647 16.4688824 8.32647059 17.6277059 8.31117647 16.903 8.51764706 15.1959412"></polygon>
+                                <polygon id="Fill-22" stroke="none" fill="#233447" fill-rule="evenodd" points="8.37258824 12.2995294 6.18729412 11.6589412 7.73082353 10.9501176"></polygon>
+                                <polygon id="Stroke-23" stroke="#233447" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="8.37258824 12.2995294 6.18729412 11.6589412 7.73082353 10.9501176"></polygon>
+                                <polygon id="Fill-24" stroke="none" fill="#233447" fill-rule="evenodd" points="11.5515882 12.2995294 12.1933529 10.9501176 13.7451176 11.6589412"></polygon>
+                                <polygon id="Stroke-25" stroke="#233447" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.5515882 12.2995294 12.1933529 10.9501176 13.7451176 11.6589412"></polygon>
+                                <polygon id="Fill-26" stroke="none" fill="#CC6228" fill-rule="evenodd" points="5.88147059 16.4688824 6.26323529 13.3282941 3.83323529 13.3971176"></polygon>
+                                <polygon id="Stroke-27" stroke="#CC6228" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="5.88147059 16.4688824 6.26323529 13.3282941 3.83323529 13.3971176"></polygon>
+                                <polygon id="Fill-28" stroke="none" fill="#CC6228" fill-rule="evenodd" points="13.6609412 13.3283529 14.0350588 16.4689412 16.0909412 13.3971765"></polygon>
+                                <polygon id="Stroke-29" stroke="#CC6228" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="13.6609412 13.3283529 14.0350588 16.4689412 16.0909412 13.3971765"></polygon>
+                                <polygon id="Fill-30" stroke="none" fill="#CC6228" fill-rule="evenodd" points="15.5026471 9.86788235 11.1467647 10.0661176 11.5514706 12.2996471 12.1932353 10.9502353 13.745 11.6590588"></polygon>
+                                <polygon id="Stroke-31" stroke="#CC6228" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="15.5026471 9.86788235 11.1467647 10.0661176 11.5514706 12.2996471 12.1932353 10.9502353 13.745 11.6590588"></polygon>
+                                <polygon id="Fill-32" stroke="none" fill="#CC6228" fill-rule="evenodd" points="6.18711765 11.659 7.73064706 10.9501765 8.37241176 12.2995882 8.77770588 10.0660588 4.42182353 9.86782353"></polygon>
+                                <polygon id="Stroke-33" stroke="#CC6228" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="6.18711765 11.659 7.73064706 10.9501765 8.37241176 12.2995882 8.77770588 10.0660588 4.42182353 9.86782353"></polygon>
+                                <polygon id="Fill-34" stroke="none" fill="#E27525" fill-rule="evenodd" points="4.42182353 9.86788235 6.24829412 13.4278824 6.18711765 11.6590588"></polygon>
+                                <polygon id="Stroke-35" stroke="#E27525" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="4.42182353 9.86788235 6.24829412 13.4278824 6.18711765 11.6590588"></polygon>
+                                <polygon id="Fill-36" stroke="none" fill="#E27525" fill-rule="evenodd" points="13.7448235 11.659 13.676 13.4278235 15.5024706 9.86782353"></polygon>
+                                <polygon id="Stroke-37" stroke="#E27525" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="13.7448235 11.659 13.676 13.4278235 15.5024706 9.86782353"></polygon>
+                                <polygon id="Fill-38" stroke="none" fill="#E27525" fill-rule="evenodd" points="8.77758824 10.0660588 8.37288235 12.2995882 8.88464706 14.9366471 8.99935294 11.4613529"></polygon>
+                                <polygon id="Stroke-39" stroke="#E27525" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="8.77758824 10.0660588 8.37288235 12.2995882 8.88464706 14.9366471 8.99935294 11.4613529"></polygon>
+                                <polygon id="Fill-40" stroke="none" fill="#E27525" fill-rule="evenodd" points="11.1465882 10.0660588 10.9324706 11.4531176 11.0395294 14.9366471 11.5512941 12.2995882"></polygon>
+                                <polygon id="Stroke-41" stroke="#E27525" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.1465882 10.0660588 10.9324706 11.4531176 11.0395294 14.9366471 11.5512941 12.2995882"></polygon>
+                                <polygon id="Fill-42" stroke="none" fill="#F5841F" fill-rule="evenodd" points="11.5515882 12.2995294 11.0398235 14.9365882 11.4062941 15.196 13.6757059 13.4277647 13.7451176 11.6589412"></polygon>
+                                <polygon id="Stroke-43" stroke="#F5841F" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.5515882 12.2995294 11.0398235 14.9365882 11.4062941 15.196 13.6757059 13.4277647 13.7451176 11.6589412"></polygon>
+                                <polygon id="Fill-44" stroke="none" fill="#F5841F" fill-rule="evenodd" points="6.18711765 11.659 6.24829412 13.4278235 8.51770588 15.1960588 8.88476471 14.9366471 8.37241176 12.2995882"></polygon>
+                                <polygon id="Stroke-45" stroke="#F5841F" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="6.18711765 11.659 6.24829412 13.4278235 8.51770588 15.1960588 8.88476471 14.9366471 8.37241176 12.2995882"></polygon>
+                                <polygon id="Fill-46" stroke="none" fill="#C0AC9D" fill-rule="evenodd" points="11.5972941 17.6277059 11.6208235 16.903 11.4214118 16.7359412 8.50258824 16.7359412 8.31141176 16.903 8.32670588 17.6277059 5.88141176 16.4688824 6.73729412 17.1700588 8.472 18.3665294 11.4449412 18.3665294 13.1872941 17.1700588 14.0349412 16.4688824"></polygon>
+                                <polygon id="Stroke-47" stroke="#C0AC9D" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.5975294 17.6275294 11.6204706 16.9034118 11.4216471 16.7351765 8.50223529 16.7351765 8.31164706 16.9034118 8.32635294 17.6275294 5.88105882 16.4687059 6.73694118 17.1704706 8.47223529 18.3669412 11.4445882 18.3669412 13.1869412 17.1704706 14.0351765 16.4687059"></polygon>
+                                <polygon id="Fill-49" stroke="none" fill="#161616" fill-rule="evenodd" points="11.4062353 15.1958824 11.0397647 14.9370588 8.88447059 14.9370588 8.51741176 15.1958824 8.31152941 16.9029412 8.50211765 16.7352941 11.4215294 16.7352941 11.6203529 16.9029412"></polygon>
+                                <polygon id="Stroke-50" stroke="#161616" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.4062353 15.1958824 11.0397647 14.9370588 8.88447059 14.9370588 8.51741176 15.1958824 8.31152941 16.9029412 8.50211765 16.7352941 11.4215294 16.7352941 11.6203529 16.9029412"></polygon>
+                                <polygon id="Fill-51" stroke="none" fill="#763E1A" fill-rule="evenodd" points="11.4061765 5.59947059 14.2797059 8.02358824 18.3379412 9.20476471 19.2314706 8.16064706 18.8420588 7.87829412 19.4608824 7.31476471 18.9873529 6.94888235 19.6055882 6.47594118 19.2008824 6.163 19.8508824 3.00770588 18.8726471 0.0735882353"></polygon>
+                                <polygon id="Stroke-52" stroke="#763E1A" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="19.2009412 6.16352941 19.8503529 3.00823529 18.8721176 0.0735294118 11.4062353 5.6 14.2797647 8.02352941 18.3374118 9.20470588 19.2315294 8.16058824 18.8421176 7.87882353 19.4609412 7.31470588 18.9874118 6.94882353 19.6056471 6.47588235"></polygon>
+                                <polygon id="Fill-54" stroke="none" fill="#763E1A" fill-rule="evenodd" points="0.0735882353 3.008 0.730647059 6.16329412 0.310058824 6.47623529 0.937117647 6.94917647 0.463 7.31505882 1.08182353 7.87858824 0.692411765 8.16094118 1.58652941 9.20505882 5.64476471 8.02388235 8.51770588 5.59976471 1.05182353 0.0732941176"></polygon>
+                                <polygon id="Stroke-55" stroke="#763E1A" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="0.0735294118 3.00811765 0.730588235 6.16341176 0.310588235 6.47635294 0.937058824 6.94870588 0.463529412 7.31458824 1.08235294 7.87870588 0.692352941 8.16047059 1.58647059 9.20517647 5.64470588 8.02341176 8.51764706 5.59988235 1.05176471 0.0734117647"></polygon>
+                                <polygon id="Fill-57" stroke="none" fill="#F5841F" fill-rule="evenodd" points="15.5027647 9.86811765 13.6757059 13.4281176 16.091 13.3969412 19.6980588 13.3969412 18.3374706 9.20458824 14.2798235 8.02341176"></polygon>
+                                <polygon id="Stroke-58" stroke="#F5841F" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="18.3375294 9.20494118 14.2798824 8.02376471 15.5028235 9.86788235 13.6757647 13.4278824 16.0910588 13.3972941 19.6981176 13.3972941"></polygon>
+                                <polygon id="Fill-59" stroke="none" fill="#F5841F" fill-rule="evenodd" points="1.58664706 9.20476471 0.234294118 13.3971176 3.83370588 13.3971176 6.24782353 13.4277059 4.42194118 9.86829412 5.64429412 8.02358824"></polygon>
+                                <polygon id="Stroke-60" stroke="#F5841F" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="5.64452941 8.02358824 1.58688235 9.20476471 0.233941176 13.3971176 3.83335294 13.3971176 6.24805882 13.4277059 4.42158824 9.86770588"></polygon>
+                                <polygon id="Fill-62" stroke="none" fill="#F5841F" fill-rule="evenodd" points="11.1465882 10.0660588 11.406 5.59958824 12.5830588 2.42135294 7.34070588 2.42135294 8.51776471 5.59958824 8.77776471 10.0660588 8.87717647 11.469 8.88482353 14.9366471 11.0395294 14.9366471 11.0471765 11.469"></polygon>
+                                <polygon id="Stroke-63" stroke="#F5841F" stroke-width="0.25" fill="none" stroke-linecap="round" stroke-linejoin="round" points="11.1465882 10.0660588 11.406 5.59958824 12.5830588 2.42135294 7.34070588 2.42135294 8.51776471 5.59958824 8.77776471 10.0660588 8.87717647 11.469 8.88482353 14.9366471 11.0395294 14.9366471 11.0471765 11.469"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
