@@ -2257,6 +2257,14 @@
     "@typescript-eslint/types" "4.31.2"
     "eslint-visitor-keys" "^2.0.0"
 
+"@walletconnect/browser-crypto@^1.0.0":
+  "integrity" "sha512-Lhj00cFQJ8veqoxrroxxqeSIy07PqMhL3eK6wmX8TIhbbru0yOps8jpOHSRtVarWvZRDa5kvZqKjnwQ4Qdqokg=="
+  "resolved" "https://registry.npmjs.org/@walletconnect/browser-crypto/-/browser-crypto-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "@walletconnect/types" "^1.0.0"
+    "@walletconnect/utils" "^1.0.0"
+
 "@walletconnect/browser-utils@^1.7.0":
   "integrity" "sha512-bQsbCIDTT1OB4v8VF5bzg3byp03qTst9kLmjQj68ElecIUcdS6nZvEDhZdQK/r63WMVnA2KrTb5AEN6hPRGgIw=="
   "resolved" "https://registry.npmjs.org/@walletconnect/browser-utils/-/browser-utils-1.7.0.tgz"
@@ -2268,6 +2276,16 @@
     "@walletconnect/window-metadata" "1.0.0"
     "detect-browser" "5.2.0"
 
+"@walletconnect/browser@^1.0.0":
+  "integrity" "sha512-2fxxD4EkzGgPyk695HjfGNEqPLCebgxEQLlnSJeGVJJEhlcTjakqv1eE0u/sJP9aCeqGR8vkovcxfxoPIxMZow=="
+  "resolved" "https://registry.npmjs.org/@walletconnect/browser/-/browser-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "@walletconnect/browser-crypto" "^1.0.0"
+    "@walletconnect/core" "^1.0.0"
+    "@walletconnect/types" "^1.0.0"
+    "@walletconnect/utils" "^1.0.0"
+
 "@walletconnect/client@^1.7.0":
   "integrity" "sha512-56aXK9Rb30cHhl4DMaUakz/3KG3Mr+/9h2iCvKDqAxmIeD931ahMZlBu86T7hGf4vboisZZEhj8/ZwiAM4Ukvg=="
   "resolved" "https://registry.npmjs.org/@walletconnect/client/-/client-1.7.0.tgz"
@@ -2278,7 +2296,7 @@
     "@walletconnect/types" "^1.7.0"
     "@walletconnect/utils" "^1.7.0"
 
-"@walletconnect/core@^1.7.0":
+"@walletconnect/core@^1.0.0", "@walletconnect/core@^1.7.0":
   "integrity" "sha512-0YX9Y/CVYctKPcSgSyp2wLrk4OgSenmyzWj6Z3C93Hb7PG+tJ+dKCeNFeEIYA03QQRxHew5uMLPbVgmdtmB/0w=="
   "resolved" "https://registry.npmjs.org/@walletconnect/core/-/core-1.7.0.tgz"
   "version" "1.7.0"
@@ -2385,12 +2403,12 @@
     "@walletconnect/utils" "^1.7.0"
     "ws" "7.5.3"
 
-"@walletconnect/types@^1.7.0":
+"@walletconnect/types@^1.0.0", "@walletconnect/types@^1.7.0":
   "integrity" "sha512-eoqnF+U04IuMfGIBsqYhAR6SIM2kzcrZM/RCVcomT/lIcsRoBwNxR+86+3Vn12/iaGnuAKn8xDZhZ47SLFmanQ=="
   "resolved" "https://registry.npmjs.org/@walletconnect/types/-/types-1.7.0.tgz"
   "version" "1.7.0"
 
-"@walletconnect/utils@^1.7.0":
+"@walletconnect/utils@^1.0.0", "@walletconnect/utils@^1.7.0":
   "integrity" "sha512-DnYyKNMkpPUkbu6YwHfycvzlpx7Ro/qDPIDAuaNYT4FFWFyYxfx2ZY66kU3XklQivAc8dK7TyvYPJ08LWd8w4Q=="
   "resolved" "https://registry.npmjs.org/@walletconnect/utils/-/utils-1.7.0.tgz"
   "version" "1.7.0"
@@ -10787,6 +10805,11 @@
   "resolved" "https://registry.npmjs.org/q/-/q-1.5.1.tgz"
   "version" "1.5.1"
 
+"qr-image@^3.2.0":
+  "integrity" "sha1-n6gpW+rlDEoUnPn5CaHbRkqGcug="
+  "resolved" "https://registry.npmjs.org/qr-image/-/qr-image-3.2.0.tgz"
+  "version" "3.2.0"
+
 "qrcode@1.4.4":
   "integrity" "sha512-oLzEC5+NKFou9P0bMj5+v6Z40evexeE29Z9cummZXZ9QXyMr3lphkURzxjXgPJC5azpxcshoDWV1xE46z+/c3Q=="
   "resolved" "https://registry.npmjs.org/qrcode/-/qrcode-1.4.4.tgz"
@@ -13283,6 +13306,13 @@
   "version" "1.0.7"
   dependencies:
     "makeerror" "1.0.x"
+
+"walletconnect-qrcode-modal@^0.7.28":
+  "integrity" "sha512-hmAw2pxXy1kIuNkGaFbWcnDeLYhi85tT0rq0Nv6+ZBw+6rknrbinzs/chf9r67rk4UQBOfS9bQUTssMNyprR5g=="
+  "resolved" "https://registry.npmjs.org/walletconnect-qrcode-modal/-/walletconnect-qrcode-modal-0.7.28.tgz"
+  "version" "0.7.28"
+  dependencies:
+    "qr-image" "^3.2.0"
 
 "watchpack-chokidar2@^2.0.1":
   "integrity" "sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww=="

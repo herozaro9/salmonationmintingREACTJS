@@ -1,5 +1,7 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
+import WalletConnect from "@walletconnect/client";
+import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
 import Web3 from "web3";
 // log
 import { fetchData } from "../data/dataActions";
@@ -72,14 +74,14 @@ export const connect = () => {
               web3: web3,
             })
           );
-          // Add listeners start
+          
           ethereum.on("accountsChanged", (accounts) => {
             dispatch(updateAccount(accounts[0]));
           });
           ethereum.on("chainChanged", () => {
             window.location.reload();
           });
-          // Add listeners end
+
         } else {
           dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
         }
@@ -89,6 +91,79 @@ export const connect = () => {
     } else {
       dispatch(connectFailed("Install Metamask."));
     }
+  };
+};
+
+export const walletconnectcall = () => {
+  return async (dispatch) => {
+
+    dispatch(connectRequest());
+    const abiResponse = await fetch("/config/abi.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const abi = await abiResponse.json();
+    const configResponse = await fetch("/config/config.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const CONFIG = await configResponse.json();
+
+    const bridge = "https://bridge.walletconnect.org";
+
+    const walletConnector = new WalletConnect({ bridge });
+    window.walletConnector = walletConnector;
+
+    const ethereum  = 'https://data-seed-prebsc-1-s1.binance.org:8545/';
+    Web3EthContract.setProvider(ethereum);
+    let web3 = new Web3(ethereum);
+
+    if (!walletConnector.connected) {
+      await walletConnector.createSession();
+
+      const uri = walletConnector.uri;
+      WalletConnectQRCodeModal.open(uri, () => {
+      });
+    }
+
+    walletConnector.on("connect", (error, payload) => {
+      if (error) {
+        throw error;
+      }
+
+      WalletConnectQRCodeModal.close();
+      const { accounts, chainId } = payload.params[0];
+      const SmartContractObj = new Web3EthContract(
+        abi,
+        CONFIG.CONTRACT_ADDRESS
+      );
+      dispatch(
+        connectSuccess({
+          account: accounts[0],
+          smartContract: SmartContractObj,
+          web3: Web3,
+        })
+      );
+    });
+
+    walletConnector.on("session_update", (error, payload) => {
+      if (error) {
+        throw error;
+      }
+      const { accounts, chainId } = payload.params[0];
+      dispatch(updateAccount(accounts[0]));
+    });
+
+    walletConnector.on("disconnect", (error, payload) => {
+      if (error) {
+        throw error;
+      }
+      window.location.reload();
+    });
   };
 };
 

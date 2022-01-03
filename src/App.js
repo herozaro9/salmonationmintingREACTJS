@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
+import { walletconnectcall } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import * as s from "./styles/globalStyles";
@@ -304,10 +305,9 @@ function App() {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
+    console.log(blockchain.account)
     blockchain.smartContract.methods
       .mint(mintAmount)
       .send({
@@ -488,7 +488,7 @@ function App() {
                     <StyledButton
                       onClick={(e) => {
                         e.preventDefault();
-                        dispatch(walletconnect());
+                        dispatch(walletconnectcall());
                         getData();
                       }}
                     >
