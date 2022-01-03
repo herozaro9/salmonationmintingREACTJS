@@ -6,7 +6,8 @@ import { fetchData } from "./redux/data/dataActions";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
-
+import Moralis from 'moralis';
+Moralis.start({ serverUrl : "https://ln5wdvmvphiw.usemoralis.com:2053/server", appId : "sSsiTKzENTtcuPHSevX2HUyGc4qoYCtX24VOJNf0" });
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
@@ -206,10 +207,84 @@ const StyledModal = Modal.styled`
     }
     `;
 
+const abi = () => {
+  return async (dispatch) => {
+    const abiResponse = await fetch("/config/abi.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    await abiResponse.json()
+  }
+}
+
+function fixURL(url){
+  if(url.startsWith("ipfs")){
+    return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)[0];
+  }else{
+    return url+"?format=json";
+  }
+}
+
 function FancyModalButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [opacity, setOpacity] = useState(0);
+  const blockchain = useSelector((state) => state.blockchain);
+  const data = useSelector((state) => state.data);
+  const [claimingNft, setClaimingNft] = useState(false);
+  const [CONFIG, SET_CONFIG] = useState({
+    CONTRACT_ADDRESS: "",
+    SCAN_LINK: "",
+    NETWORK: {
+      NAME: "",
+      SYMBOL: "",
+      ID: 0,
+    },
+    NFT_NAME: "",
+    SYMBOL: "",
+    MAX_SUPPLY: 1,
+    WEI_COST: 0,
+    DISPLAY_COST: 0,
+    GAS_LIMIT: 0,
+    MARKETPLACE: "",
+    MARKETPLACE_LINK: "",
+    SHOW_BACKGROUND: false,
+  });
 
+  const getConfig = async () => {
+    const configResponse = await fetch("/config/config.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const config = await configResponse.json();
+    SET_CONFIG(config);
+  };
+
+  useEffect(() => {
+    getConfig();
+  }, []);
+
+  async function myNFT(){
+    const address = blockchain.account;
+    const options = { address: address, chain: "BSC Testnet" };
+    const metaData = await Moralis.Web3.getNFTs(options);
+    var buttonnft = "";
+    metaData.map(function(nft){
+      let url = fixURL(nft.token_uri);
+
+      buttonnft += '<a href="https://testnet.bscscan.com/token/'+CONFIG.CONTRACT_ADDRESS+'?a='+nft.token_id+'" target="_blank" className="btnmynft">'+nft.name+ '('+nft.symbol+' - '+nft.token_id+')</a>';
+     
+      // fetch(url)
+      // .then(response => response.json())
+      // .then(data => {
+      //   fixURL(data.image);
+      // })
+    })
+    return buttonnft;
+  }
   function toggleModal(e) {
     setOpacity(0);
     setIsOpen(!isOpen);
@@ -227,7 +302,7 @@ function FancyModalButton() {
       setTimeout(resolve, 300);
     });
   }
-
+  var nftcall = myNFT();
   return (
     <div>
       <StyledButton onClick={toggleModal}
@@ -256,10 +331,7 @@ function FancyModalButton() {
             <div className="modal-body">
             <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
               <s.Container flex={1} jc={"center"} ai={"center"}>
-                <StyledImgGif alt={"example"} src={"/config/images/example.gif"} />
-              </s.Container>
-              <s.Container flex={1} jc={"center"} ai={"center"}>
-                <StyledImgGif alt={"example"} src={"/config/images/example.gif"} />
+              MYNFT
               </s.Container>
               </ResponsiveWrapper>
             </div>
