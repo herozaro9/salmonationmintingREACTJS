@@ -194,15 +194,15 @@ const StyledModal = Modal.styled`
     opacity: ${(props) => props.opacity};
     transition : all 0.3s ease-in-out;
     @media (min-width: 992px){
-      width: 900px;
+      width: 500px;
       margin: 1.75rem auto;
     }
     @media (max-width: 767px){
-      width: 650px;
+      width: 400px;
       margin: 1.75rem auto;
     }
     @media (max-width: 576px){
-      width: 450px;
+      width: 350px;
       margin: 1.75rem auto;
     }
     `;
@@ -251,6 +251,7 @@ function FancyModalButton() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
+  const [datas, setData] = useState([]);
 
   const getConfig = async () => {
     const configResponse = await fetch("/config/config.json", {
@@ -267,24 +268,32 @@ function FancyModalButton() {
     getConfig();
   }, []);
 
-  async function myNFT(){
+  const myNFT = async () => {
     const address = blockchain.account;
     const options = { address: address, chain: "BSC Testnet" };
     const metaData = await Moralis.Web3.getNFTs(options);
     var buttonnft = "";
-    metaData.map(function(nft){
-      let url = fixURL(nft.token_uri);
+    // metaData.map(function(nft){
+    //   let url = fixURL(nft.token_uri);
 
-      buttonnft += '<a href="https://testnet.bscscan.com/token/'+CONFIG.CONTRACT_ADDRESS+'?a='+nft.token_id+'" target="_blank" className="btnmynft">'+nft.name+ '('+nft.symbol+' - '+nft.token_id+')</a>';
+    //   buttonnft += '<a href="https://testnet.bscscan.com/token/'+CONFIG.CONTRACT_ADDRESS+'?a='+nft.token_id+'" target="_blank" className="btnmynft">'+nft.name+ '('+nft.symbol+' - '+nft.token_id+')</a>';
      
       // fetch(url)
       // .then(response => response.json())
       // .then(data => {
       //   fixURL(data.image);
       // })
-    })
+    // })
+    
+    JSON.stringify([...datas, metaData]);
+    setData([...datas, metaData]);
     return buttonnft;
   }
+
+  useEffect(() => {
+    myNFT();
+  }, []);
+
   function toggleModal(e) {
     setOpacity(0);
     setIsOpen(!isOpen);
@@ -302,43 +311,84 @@ function FancyModalButton() {
       setTimeout(resolve, 300);
     });
   }
-  var nftcall = myNFT();
-  return (
-    <div>
-      <StyledButton onClick={toggleModal}
-        style={{
-          justifyContent: 'center',
-        }}
-      > 
-        MY NFT
-      </StyledButton>
-      <StyledModal
-        isOpen={isOpen}
-        afterOpen={afterOpen}
-        beforeClose={beforeClose}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-        opacity={opacity}
-        backgroundProps={{ opacity }}
-      >
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
-                <span aria-hidden="true">×</span>
-              </button>
+  if(datas.length > 0){
+    const posts = datas[0].map((nft, i) => (
+      <a href={"https://testnet.bscscan.com/token/"+CONFIG.CONTRACT_ADDRESS+"?a="+nft.token_id} target="_blank" className="btnmynft"><div className="title">{nft.name} ({nft.symbol} - {nft.token_id})</div><img src="images/icon.png" /></a>
+    ));
+    return (
+      <div>
+        <StyledButton onClick={toggleModal}
+          style={{
+            justifyContent: 'center',
+          }}
+        > 
+          MY NFT
+        </StyledButton>
+        <StyledModal
+          isOpen={isOpen}
+          afterOpen={afterOpen}
+          beforeClose={beforeClose}
+          onBackgroundClick={toggleModal}
+          onEscapeKeydown={toggleModal}
+          opacity={opacity}
+          backgroundProps={{ opacity }}
+        >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+                <s.Container flex={1} jc={"center"} ai={"center"}>
+                {posts}
+                </s.Container>
+                </ResponsiveWrapper>
+              </div>
             </div>
-            <div className="modal-body">
-            <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-              <s.Container flex={1} jc={"center"} ai={"center"}>
-              MYNFT
-              </s.Container>
-              </ResponsiveWrapper>
+        </StyledModal>
+      </div>
+    );
+  }else{
+    return (
+      <div>
+        <StyledButton onClick={toggleModal}
+          style={{
+            justifyContent: 'center',
+          }}
+        > 
+          MY NFT
+        </StyledButton>
+        <StyledModal
+          isOpen={isOpen}
+          afterOpen={afterOpen}
+          beforeClose={beforeClose}
+          onBackgroundClick={toggleModal}
+          onEscapeKeydown={toggleModal}
+          opacity={opacity}
+          backgroundProps={{ opacity }}
+        >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+                <s.Container flex={1} jc={"center"} ai={"center"}>
+                NFT NOT FOUND
+                </s.Container>
+                </ResponsiveWrapper>
+              </div>
             </div>
-          </div>
-      </StyledModal>
-    </div>
-  );
+        </StyledModal>
+      </div>
+    );
+  }
 }
 
 const FadingBackground = styled(BaseModalBackground)`
@@ -379,7 +429,6 @@ function App() {
     let totalGasLimit = String(gasLimit * mintAmount);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-    console.log(blockchain.account)
     blockchain.smartContract.methods
       .mint(mintAmount)
       .send({
@@ -389,12 +438,12 @@ function App() {
         value: totalCostWei,
       })
       .once("error", (err) => {
-        console.log(err);
+        // console.log(err);
         setFeedback("Sorry, something went wrong please try again later.");
         setClaimingNft(false);
       })
       .then((receipt) => {
-        console.log(receipt);
+        // console.log(receipt);
         setFeedback(
           `WOW, the ${CONFIG.NFT_NAME} is yours! go visit MY NFT to view it.`
         );
