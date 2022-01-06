@@ -129,3 +129,22 @@ button.close {
     max-height: 30px;
     max-width: 30px;
 }
+
+.agreement{
+    color: #fff;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    font-weight: 700;
+}   
+
+.agreement span a{
+    color: #f47621;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+.buyNFTBTN[disabled]{
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}

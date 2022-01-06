@@ -5,6 +5,7 @@ import { walletconnectcall } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
 import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 import * as s from "./styles/globalStyles";
+import Checkbox from "./styles/Checkbox";
 import styled from "styled-components";
 import Moralis from 'moralis';
 Moralis.start({ serverUrl : "https://ln5wdvmvphiw.usemoralis.com:2053/server", appId : "sSsiTKzENTtcuPHSevX2HUyGc4qoYCtX24VOJNf0" });
@@ -403,6 +404,7 @@ function App() {
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
+  const [valuecheckbox, setCheckbox] = useState(true);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -676,8 +678,15 @@ function App() {
                       </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
+                    <Checkbox
+                      label=''
+                      value={!valuecheckbox}
+                      checked={!valuecheckbox}
+                      onChange={({ target }) => setCheckbox(!valuecheckbox)}
+                    />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton
+                      <StyledButton 
+                        className="buyNFTBTN"
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
                           e.preventDefault();
@@ -687,6 +696,8 @@ function App() {
                         style={{
                           justifyContent: 'center',
                         }}
+                        value={valuecheckbox}
+                        disabled={valuecheckbox}
                       >
                         {claimingNft ? "BUSY" : "BUY"}
                       </StyledButton>
