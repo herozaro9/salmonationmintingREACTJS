@@ -252,7 +252,7 @@ function FancyModalButton() {
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
   });
-  const [datas, setData] = useState([]);
+  const [btnImgNft, setBtnImgNft] = useState([]);
 
   const getConfig = async () => {
     const configResponse = await fetch("/config/config.json", {
@@ -286,14 +286,37 @@ function FancyModalButton() {
       // })
     // })
     
-    JSON.stringify([...datas, metaData]);
-    setData([...datas, metaData]);
+    if(metaData.length > 0){
+      const posts = metaData.map((nft, i) => fixURL(nft.token_uri, nft.token_id).then(img => {
+        return <a href={"https://testnet.bscscan.com/token/"+CONFIG.CONTRACT_ADDRESS+"?a="+nft.token_id} target="_blank" className="btnmynft"><div className="title">{nft.name} ({nft.symbol} - {nft.token_id})</div><img src={img} /></a>;
+        })
+      );
+      Promise.all(posts).then(values => {setBtnImgNft([...btnImgNft, values])});
+    }else{
+      setBtnImgNft([...btnImgNft, "NFT NOT FOUND"])
+    }
+
     return buttonnft;
   }
 
   useEffect(() => {
-    myNFT();
+    myNFT()
   }, []);
+
+  async function fixURL(url, id){
+    const myArray = url.split("/");
+    const metadata = 'https://gateway.pinata.cloud/ipfs/'+myArray[4]+'/'+id+'.json';
+    
+    return fetch(metadata)
+    .then((response) => response.json())
+    .then((responseJson) => {
+        const myArrayresponse = responseJson.image.split("/");
+        return "https://gateway.pinata.cloud/ipfs/"+myArrayresponse[2]+"/"+myArrayresponse[3];
+    })
+    .catch((error) => {
+       return "images/icon.png";
+    });
+  }
 
   function toggleModal(e) {
     setOpacity(0);
@@ -312,84 +335,43 @@ function FancyModalButton() {
       setTimeout(resolve, 300);
     });
   }
-  if(datas.length > 0){
-    const posts = datas[0].map((nft, i) => (
-      <a href={"https://testnet.bscscan.com/token/"+CONFIG.CONTRACT_ADDRESS+"?a="+nft.token_id} target="_blank" className="btnmynft"><div className="title">{nft.name} ({nft.symbol} - {nft.token_id})</div><img src="images/icon.png" /></a>
-    ));
-    return (
-      <div>
-        <StyledButton onClick={toggleModal}
-          style={{
-            justifyContent: 'center',
-          }}
-        > 
-          MY NFT
-        </StyledButton>
-        <StyledModal
-          isOpen={isOpen}
-          afterOpen={afterOpen}
-          beforeClose={beforeClose}
-          onBackgroundClick={toggleModal}
-          onEscapeKeydown={toggleModal}
-          opacity={opacity}
-          backgroundProps={{ opacity }}
-        >
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div className="modal-body">
-              <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-                <s.Container flex={1} jc={"center"} ai={"center"}>
-                {posts}
-                </s.Container>
-                </ResponsiveWrapper>
-              </div>
+  
+  return (
+    <div>
+      <StyledButton onClick={toggleModal}
+        style={{
+          justifyContent: 'center',
+        }}
+      > 
+        MY NFT
+      </StyledButton>
+      <StyledModal
+        isOpen={isOpen}
+        afterOpen={afterOpen}
+        beforeClose={beforeClose}
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        opacity={opacity}
+        backgroundProps={{ opacity }}
+      >
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
-        </StyledModal>
-      </div>
-    );
-  }else{
-    return (
-      <div>
-        <StyledButton onClick={toggleModal}
-          style={{
-            justifyContent: 'center',
-          }}
-        > 
-          MY NFT
-        </StyledButton>
-        <StyledModal
-          isOpen={isOpen}
-          afterOpen={afterOpen}
-          beforeClose={beforeClose}
-          onBackgroundClick={toggleModal}
-          onEscapeKeydown={toggleModal}
-          opacity={opacity}
-          backgroundProps={{ opacity }}
-        >
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLiveLabel">MY NFT</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={toggleModal}>
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div className="modal-body">
-              <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-                <s.Container flex={1} jc={"center"} ai={"center"}>
-                NFT NOT FOUND
-                </s.Container>
-                </ResponsiveWrapper>
-              </div>
+            <div className="modal-body">
+            <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+              <s.Container flex={1} jc={"center"} ai={"center"}>
+              {btnImgNft}
+              </s.Container>
+              </ResponsiveWrapper>
             </div>
-        </StyledModal>
-      </div>
-    );
-  }
+          </div>
+      </StyledModal>
+    </div>
+  );
 }
 
 const FadingBackground = styled(BaseModalBackground)`
