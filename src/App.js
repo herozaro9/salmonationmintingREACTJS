@@ -288,7 +288,7 @@ function FancyModalButton() {
     
     if(metaData.length > 0){
       const posts = metaData.map((nft, i) => fixURL(nft.token_uri, nft.token_id).then(img => {
-        return <a href={"https://testnet.bscscan.com/token/"+CONFIG.CONTRACT_ADDRESS+"?a="+nft.token_id} target="_blank" className="btnmynft"><div className="title">{nft.name} ({nft.symbol} - {nft.token_id})</div><img src={img} /></a>;
+        return <a href={"https://testnet.bscscan.com/token/0xc2A3a8693686627d124bEA48191E79Dd70FA02F7?a="+nft.token_id} target="_blank" className="btnmynft"><div className="title">{nft.name} ({nft.symbol} - {nft.token_id})</div><img src={img} /></a>;
         })
       );
       Promise.all(posts).then(values => {setBtnImgNft([...btnImgNft, values])});
